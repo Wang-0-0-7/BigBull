@@ -6,70 +6,74 @@
 
   <groupId>cn.ekgc.bigbull</groupId>
   <artifactId>bigbull-data-commons</artifactId>
-  <version>1.0-SNAPSHOT</version>
 
-  <name>bigbull-data-commons</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+<packaging>jar</packaging>
+  <!-- 设置项目打包方式：jar -->
+
+  <!-- 配置项目父级依赖：Witmed Parent [BEGIN] -->
+  <parent>
+    <groupId>cn.ekgc.bigbull</groupId>
+    <artifactId>bigbull-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <!-- 配置项目父级依赖：Witmed Parent [END] -->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <druid-spring-boot-starter.version>1.2.11</druid-spring-boot-starter.version>
+    <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+    <mybatis-plus-boot-starter.version>3.5.2</mybatis-plus-boot-starter.version>
+    <pagehelper-spring-boot-starter.version>1.4.3</pagehelper-spring-boot-starter.version>
   </properties>
 
   <dependencies>
+    <!-- 配置依赖：Witmed Commons [BEGIN] -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>cn.ekgc.bigbull</groupId>
+      <artifactId>bigbull-commons</artifactId>
+      <version>${parent.version}</version>
     </dependency>
-  </dependencies>
+    <!-- 配置依赖：Witmed Commons [END] -->
 
-  <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+    <!-- 配置依赖：MySQL Connector/J [BEGIN] -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <!-- 配置依赖：MySQL Connector/J [END] -->
+
+    <!-- 配置依赖：Druid Spring Boot Starter [BEGIN] -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>${druid-spring-boot-starter.version}</version>
+    </dependency>
+    <!-- 配置依赖：Druid Spring Boot Starter [END] -->
+
+    <!-- 配置依赖：MyBatis Spring Boot Starter [BEGIN] -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-spring-boot-starter.version}</version>
+    </dependency>
+    <!-- 配置依赖：MyBatis Spring Boot Starter [END] -->
+
+    <!-- 配置依赖：MyBatis Plus [BEGIN] -->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>${mybatis-plus-boot-starter.version}</version>
+    </dependency>
+    <!-- 配置依赖：MyBatis Plus [END] -->
+
+    <!-- 配置依赖：PageHelper Spring Boot Starter [BEGIN] -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>${pagehelper-spring-boot-starter.version}</version>
+    </dependency>
+    <!-- 配置依赖：PageHelper Spring Boot Starter [END] -->
+  </dependencies>
 </project>
