@@ -21,6 +21,9 @@ public class PageVO<E extends BaseVO> implements Serializable {
 	private Integer totalPage;
 	private List<E> list;
 
+	public PageVO() {
+	}
+
 	public PageVO(Integer num, Integer size) {
 		if (num!=null&&num>0){
 			this.num = num;
