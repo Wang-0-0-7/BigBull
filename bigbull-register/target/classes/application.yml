@@ -1,0 +1,25 @@
+###### 配置注册中心端口号
+server:
+  port: 9999
+spring:
+  ###### 配置项目应用名
+  application:
+    name: bigbull-register
+  ###### 配置spring boot bean id 的 override 机制
+  main:
+    allow-bean-definition-overriding: true
+###### 配置 Eureka server 信息
+eureka:
+  ###### 配置注册中心主机名，该主机名可用于其它应用确认连接注册中心
+  instance:
+    hostname: localhost
+  client:
+    ###### 由于本项目是注册中心项目，禁止本地服务也向注册中心注册
+    register-with-eureka: false
+    ###### 对于springcloud来说允许多个注册中心存在，这些注册注册中心会交换信息
+    ######这样的好处就是，当注册服务过多时，就能分担注册压力
+    ######但本项目就一个注册中心禁止其它注册中心发现服务
+    fetch-registry: false
+    ###### 暴露注册中心连接地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
