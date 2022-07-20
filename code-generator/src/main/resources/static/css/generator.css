@@ -1,0 +1,25 @@
+.generator-container {
+	width: 800px;
+	height: 600px;
+	border: 1px solid #E7EAED;
+	border-radius: 12px;
+	box-shadow: 10px 10px 10px #E7EAED;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.generator-title {
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+}
+
+.generator-table {
+	width: 610px;
+	margin: 30px auto;
+	border-collapse: separate;
+	border-spacing: 10px;
+}

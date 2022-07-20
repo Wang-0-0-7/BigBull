@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>代码生成器</title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/generator.css">
+		<script type="application/javascript" src="/js/jquery-3.6.0.min.js"></script>
+		<script type="application/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="application/javascript">
+			function generate(url) {
+				$.ajax({
+					url: url,
+					type: "post",
+					data: $("#myform").serialize(),
+					dataType: "json",
+					success: function(data) {
+						if (data) {
+							alert("生成成功！");
+						} else {
+							alert("生成失败！");
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="generator-container">
+			<div class="generator-title">
+				<h1>代码生成器</h1>
+			</div>
+			<div class="generator-form">
+				<form id="myform" role="form">
+					<table class="generator-table">
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-globe"></i>&nbsp;
+								<span>数据库连接 IP 地址：</span>
+							</td>
+							<td>
+								<input type="text" name="dbIp" class="form-control" style="width: 4 00px;" placeholder="请填写您要连接数据库的 IP 地址"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-crosshairs"></i>&nbsp;
+								<span>数据库连接端口号：</span>
+							</td>
+							<td>
+								<input type="text" name="dbPort" class="form-control" style="width: 400px;" placeholder="请填写您要连接数据库的端口号"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-inbox"></i>&nbsp;
+								<span>数据库名：</span>
+							</td>
+							<td>
+								<input type="text" name="dbSchema" class="form-control" style="width: 400px;" placeholder="请填写您要连接数据库的库名"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-user"></i>&nbsp;
+								<span>数据库登录用户名：</span>
+							</td>
+							<td>
+								<input type="text" name="dbUsername" class="form-control" style="width: 400px;" placeholder="请填写您要连接数据库的登录用户名"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-lock"></i>&nbsp;
+								<span>数据库登录密码：</span>
+							</td>
+							<td>
+								<input type="password" name="dbPassword" class="form-control" style="width: 400px;" placeholder="请填写您要连接数据库的登录密码"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-cubes"></i>&nbsp;
+								<span>需要生成的数据表：</span>
+							</td>
+							<td>
+								<input type="type" name="tableNames" class="form-control" style="width: 400px;" placeholder="请填写需要生成的数据表明，通过 “-” 进行分隔"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-code"></i>&nbsp;
+								<span>实体类包名：</span>
+							</td>
+							<td>
+								<input type="type" name="entityPackage" class="form-control" style="width: 400px;" placeholder="请填写实体类包名"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-code"></i>&nbsp;
+								<span>实体继承类：</span>
+							</td>
+							<td>
+								<input type="type" name="entityParent" class="form-control" style="width: 400px;" placeholder="请填写实体类要继承的父类全限定名"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-code"></i>&nbsp;
+								<span>数据持久层包名：</span>
+							</td>
+							<td>
+								<input type="type" name="daoPackage" class="form-control" style="width: 400px;" placeholder="请填写数据持久层接口包名"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right;">
+								<i class="fa fa-folder-open"></i>&nbsp;
+								<span>文件生成路径：</span>
+							</td>
+							<td>
+								<input type="type" name="folderPath" class="form-control" style="width: 400px;" placeholder="请填写文件生成路径文件夹"/>
+							</td>
+							<td>
+								<span style="color: #DE2910FF; padding-left: 10px;">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: right">
+								<button type="button" onclick="generate('/generate/mp')" class="btn btn-success">
+									生成代码&nbsp;&lt;MyBatis-PLUS&gt;
+								</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

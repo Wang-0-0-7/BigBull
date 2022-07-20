@@ -1,0 +1,12 @@
+server:
+  port: 80
+spring:
+  application:
+    name: code-generator
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/view/
+    suffix: .html

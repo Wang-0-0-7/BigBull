@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@MapperScan("cn.ekgc.bigbull.dao")
+@MapperScan("cn.ekgc.bigbull.*.dao")
 @EnableEurekaClient
 @SpringBootApplication
 /**
